@@ -8,8 +8,33 @@ import { Description } from '@radix-ui/react-toast';
 
 const ProjectsSection = () => {
   const { theme } = useTheme();
+  const [preview, setPreview] = React.useState<{ src: string; title: string } | null>(null);
 
   const projects = [
+    {
+      title: "TechHub",
+      description: "A platform to discover and share developer tools, tutorials, and starter kits.",
+      technologies: ["React", "TypeScript", "Node.js", "Firebase"],
+      demo: "https://techhub-fsd.netlify.app/",
+      github: "https://github.com/waseemali2826",
+      image: "techhub.webp"
+    },
+    {
+      title: "Depression Prediction",
+      description: "ML-based app that predicts depression likelihood from questionnaire or text-derived features.",
+      technologies: ["Python", "Machine Learning", "Streamlit", "Pandas", "Scikit-learn"],
+      demo: "https://prediction-checker.netlify.app/",
+      github: "https://github.com/waseemali2826",
+      image: "depression.webp"
+    },
+    {
+      title: "Paper Generator",
+      description: "Generate practice papers and question sets automatically with customizable topics and difficulty.",
+      technologies: ["Python", "NLP", "Streamlit", "Scikit-learn"],
+      demo: "https://paper-generater.netlify.app/",
+      github: "https://github.com/waseemali2826",
+      image: "paper-generator.webp"
+    },
     {
       title: "NFC Data Science Portal",
       description: "A web-based platform developed for NFC students to access datasets, explore visualizations, and enhance their data science learning through interactive tools and resources.",
@@ -118,7 +143,8 @@ const ProjectsSection = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                  className={`${project.title === 'TechHub' ? 'w-full h-full object-cover object-top' : 'w-full h-full object-cover'} hover:scale-110 transition-transform duration-500 cursor-zoom-in`}
+                  onClick={() => setPreview({ src: project.image, title: project.title })}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute top-2 sm:top-4 right-2 sm:right-4">
@@ -178,6 +204,23 @@ const ProjectsSection = () => {
           ))}
         </div>
       </div>
+      {preview && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+          onClick={() => setPreview(null)}
+        >
+          <div className="relative max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
+            <img src={preview.src} alt={preview.title} className="w-full h-auto rounded-md" />
+            <button
+              className="absolute top-2 right-2 bg-white/90 text-black px-2 py-1 rounded text-sm shadow"
+              onClick={() => setPreview(null)}
+            >
+              Close
+            </button>
+            <div className="mt-2 text-center text-white text-sm">{preview.title}</div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
