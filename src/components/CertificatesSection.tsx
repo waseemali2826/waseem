@@ -13,6 +13,21 @@ const CertificatesSection: React.FC<CertificatesSectionProps> = ({ openCertifica
 
   const certificates = [
     {
+      title: "Human Resource Management",
+      description: "Certification in HR fundamentals, recruitment lifecycle, employee onboarding, performance evaluation, and workplace compliance practices.",
+      image: "HR.webp?auto=format&fit=crop&w=400&q=80"
+    },
+    {
+      title: "Digital Marketing Specialist",
+      description: "Comprehensive certification covering SEO, social media marketing, PPC campaigns, content strategy, analytics, and online brand growth.",
+      image: "DM.webp?auto=format&fit=crop&w=400&q=80"
+    },
+    {
+      title: "Course Completion Certificate",
+      description: "Official certificate awarded upon successful completion of a structured professional training and assessment program.",
+      image: "Gao-completion.webp?auto=format&fit=crop&w=400&q=80"
+    },
+    {
       title: "Master ChatGPT",
       description: "Advanced certification in ChatGPT usage, prompt engineering, and AI integration for various applications and business solutions.",
       image: "gpt.webp?auto=format&fit=crop&w=400&q=80"
@@ -47,7 +62,7 @@ const CertificatesSection: React.FC<CertificatesSectionProps> = ({ openCertifica
       description: "Specialized certification in creating custom AI chatbots with PDF processing capabilities and document understanding.",
       image: "creategpt.webp?auto=format&fit=crop&w=400&q=80"
     },
-        {
+    {
       title: "Data Analytics Essentials",
       description: "Specialization in Data Analytics Essentials focuses on mastering core data analysis techniques, tools, and insights for informed decision-making.",
       image: "DAE.webp?auto=format&fit=crop&w=400&q=80"
@@ -67,36 +82,37 @@ const CertificatesSection: React.FC<CertificatesSectionProps> = ({ openCertifica
           {certificates.map((cert, index) => (
             <CometCard key={index}>
               <Card
-                className={`text-center card-3d h-full flex flex-col justify-between border-emerald-500/20 hover:shadow-lg transition-all duration-300 cursor-pointer ${
-                  theme === 'dark'
-                    ? 'bg-gradient-to-br from-emerald-600/20 to-gray-800/50'
-                    : 'bg-gradient-to-br from-emerald-600/20 to-white/50'
-                }`}
+                className={`text-center card-3d h-full flex flex-col justify-between border-emerald-500/20 hover:shadow-lg transition-all duration-300 cursor-pointer ${theme === 'dark'
+                  ? 'bg-gradient-to-br from-emerald-600/20 to-gray-800/50'
+                  : 'bg-gradient-to-br from-emerald-600/20 to-white/50'
+                  }`}
                 style={{
                   animationDelay: `${index * 100}ms`,
-                  height: '350px', // Fixed height for uniformity
+                  height: '420px', // Increased height to accommodate full images
                   width: '100%', // Full width within the grid
+                  display: 'flex',
+                  flexDirection: 'column'
                 }}
                 onClick={() => openCertificateModal(cert)}
               >
                 <CardContent className="p-4 sm:p-6 flex flex-col">
-                  <img
-                    src={cert.image}
-                    alt={cert.title}
-                    className="w-full h-40 object-cover rounded-lg mb-3 sm:mb-4 transition-transform duration-300 hover:scale-105" // Fixed height for images
-                  />
+                  <div className="relative w-full h-48 overflow-hidden rounded-lg mb-3 sm:mb-4">
+                    <img
+                      src={cert.image}
+                      alt={cert.title}
+                      className="w-full h-full object-contain transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
 
                   <Award className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-emerald-500 mx-auto mb-3 sm:mb-4 pulse-ring" />
 
-                  <h3 className={`font-semibold text-sm sm:text-base lg:text-lg mb-2 ${
-                    theme === 'dark' ? 'text-white' : 'text-gray-900'
-                  }`}>
+                  <h3 className={`font-semibold text-sm sm:text-base lg:text-lg mb-2 ${theme === 'dark' ? 'text-white' : 'text-gray-900'
+                    }`}>
                     {cert.title}
                   </h3>
 
-                  <p className={`text-xs sm:text-sm ${
-                    theme === 'dark' ? 'text-gray-400' : 'text-gray-700'
-                  }`}>
+                  <p className={`text-xs sm:text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-700'
+                    }`}>
                     Click to view details
                   </p>
                 </CardContent>

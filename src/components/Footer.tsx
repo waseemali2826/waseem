@@ -12,8 +12,21 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
   const { theme } = useTheme();
 
   return (
-    <footer className={`py-8 sm:py-10 lg:py-12 border-t border-emerald-500/20 relative z-10 ${theme === 'dark' ? 'bg-gradient-to-r from-black/80 to-gray-900/80' : 'bg-gradient-to-r from-white/80 to-gray-100/80'}`}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className={`py-8 sm:py-10 lg:py-12 border-t border-emerald-500/20 relative z-10 overflow-hidden ${theme === 'dark' ? 'bg-gradient-to-r from-black/80 to-gray-900/80' : 'bg-gradient-to-r from-white/90 to-white/90'}`}>
+      {theme === 'light' && (
+        <div 
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-10 z-0"
+          style={{ 
+            backgroundImage: 'url(/images/footer-bg.png)',
+            backgroundSize: 'contain',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            margin: '20px',
+            backgroundBlendMode: 'luminosity'
+          }}
+        />
+      )}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-6 lg:mb-8">
           <div className="sm:col-span-2 animate-fade-in">
             <h3 className="text-xl sm:text-2xl font-bold text-emerald-500 mb-3 sm:mb-4 animate-pulse">Waseem Ali</h3>

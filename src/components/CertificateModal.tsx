@@ -29,11 +29,19 @@ const CertificateModal: React.FC<CertificateModalProps> = ({ isOpen, onClose, ce
         </Button>
         
         <div className="p-6">
-          <img 
-            src={certificate.image} 
-            alt={certificate.title}
-            className="w-full h-64 object-cover rounded-xl mb-4"
-          />
+          <div className="flex items-center justify-center bg-gray-100 dark:bg-gray-800 rounded-xl p-4 mb-6">
+            <img 
+              src={certificate.image} 
+              alt={certificate.title}
+              className="max-w-full max-h-[70vh] object-contain rounded-lg"
+              style={{
+                width: 'auto',
+                height: 'auto',
+                maxHeight: '70vh',
+                maxWidth: '100%'
+              }}
+            />
+          </div>
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
             {certificate.title}
           </h3>
