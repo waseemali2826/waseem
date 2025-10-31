@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
@@ -31,7 +30,7 @@ const Navigation: React.FC<NavigationProps> = ({
   ];
 
   return (
-    <nav className={`fixed top-0 w-full z-50 border-b transition-all duration-300 ${theme === 'dark' ? 'bg-black/90 border-emerald-500/20' : 'bg-white/90 border-emerald-500/20'} backdrop-blur-sm`}>
+    <nav className={`fixed top-0 w-full z-50 border-b transition-all duration-300 ${theme === 'dark' ? 'bg-black/90 border-emerald-500/20' : 'bg-emerald-50/80 border-emerald-200'} backdrop-blur-sm`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
         <div className="flex justify-between items-center">
           <div className="text-lg sm:text-xl lg:text-2xl font-bold text-emerald-500 animate-pulse">Waseem Ali</div>
@@ -62,7 +61,7 @@ const Navigation: React.FC<NavigationProps> = ({
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden text-emerald-500 transform transition-transform duration-300 hover:scale-110 p-1"
+              className={`lg:hidden transform transition-transform duration-300 hover:scale-110 p-1 ${theme === 'dark' ? 'text-emerald-500' : 'text-emerald-600'}`}
             >
               {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -71,7 +70,7 @@ const Navigation: React.FC<NavigationProps> = ({
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-4 animate-fade-in bg-opacity-95 backdrop-blur-sm rounded-lg p-4">
+          <div className={`lg:hidden mt-4 animate-fade-in backdrop-blur-sm rounded-lg p-4 ${theme === 'dark' ? 'bg-black/95' : 'bg-emerald-100/95'}`}>
             <div className="grid grid-cols-2 gap-2">
               {navItems.map((item) => (
                 <button

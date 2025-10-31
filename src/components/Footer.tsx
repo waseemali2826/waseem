@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Instagram } from 'lucide-react';
@@ -12,7 +11,7 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
   const { theme } = useTheme();
 
   return (
-    <footer className={`py-8 sm:py-10 lg:py-12 border-t border-emerald-500/20 relative z-10 overflow-hidden ${theme === 'dark' ? 'bg-gradient-to-r from-black/80 to-gray-900/80' : 'bg-gradient-to-r from-white/90 to-white/90'}`}>
+    <footer className={`py-8 sm:py-10 lg:py-12 border-t relative z-10 overflow-hidden ${theme === 'dark' ? 'bg-gradient-to-r from-black/80 to-gray-900/80 border-emerald-500/20' : 'bg-gradient-to-r from-emerald-50/80 to-emerald-50/60 border-emerald-200'}`}>
       {theme === 'light' && (
         <div 
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-10 z-0"
@@ -61,7 +60,7 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
             </div>
           </div>
           <div className="animate-slide-in-left">
-            <h4 className="text-base sm:text-lg font-semibold text-emerald-400 mb-3 sm:mb-4">Quick Links</h4>
+            <h4 className={`text-base sm:text-lg font-semibold mb-3 sm:mb-4 ${theme === 'dark' ? 'text-emerald-400' : 'text-emerald-600'}`}>Quick Links</h4>
             <div className="space-y-1 sm:space-y-2">
               {['About', 'Projects', 'Services', 'Contact'].map((link) => (
                 <button
@@ -75,7 +74,7 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
             </div>
           </div>
           <div className="animate-slide-in-right">
-            <h4 className="text-base sm:text-lg font-semibold text-emerald-400 mb-3 sm:mb-4">Specializations</h4>
+            <h4 className={`text-base sm:text-lg font-semibold mb-3 sm:mb-4 ${theme === 'dark' ? 'text-emerald-400' : 'text-emerald-600'}`}>Specializations</h4>
             <div className="space-y-1 sm:space-y-2">
               {['Machine Learning', 'Data Science', 'Python Development', 'AI Development'].map((spec) => (
                 <div key={spec} className={`text-xs sm:text-sm hover:text-emerald-500 transition-colors duration-300 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-700'}`}>
@@ -85,11 +84,11 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
             </div>
           </div>
         </div>
-        <div className={`pt-6 lg:pt-8 border-t border-emerald-500/20 text-center animate-fade-in ${theme === 'dark' ? 'text-gray-400' : 'text-gray-700'}`}>
+        <div className={`pt-6 lg:pt-8 border-t text-center animate-fade-in ${theme === 'dark' ? 'text-gray-400 border-emerald-500/20' : 'text-gray-700 border-emerald-200'}`}>
           <p className="text-xs sm:text-sm">
-            © 2024 <span className="text-emerald-500 font-semibold">Waseem Ali</span>. All rights reserved. 
+            © 2024 <span className={theme === 'dark' ? 'text-emerald-500' : 'text-emerald-600'} >Waseem Ali</span>. All rights reserved.
             <span className={theme === 'dark' ? 'text-gray-500' : 'text-gray-500'}> | </span>
-            Built with <span className="text-emerald-500">React</span> & <span className="text-emerald-500">Tailwind CSS</span>
+            Built with <span className={theme === 'dark' ? 'text-emerald-500' : 'text-emerald-600'}>React</span> & <span className={theme === 'dark' ? 'text-emerald-500' : 'text-emerald-600'}>Tailwind CSS</span>
           </p>
         </div>
       </div>
