@@ -84,11 +84,11 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
             </div>
           </div>
         </div>
-        <div className={`pt-6 lg:pt-8 border-t border-emerald-500/20 text-center animate-fade-in ${theme === 'dark' ? 'text-gray-400' : 'text-gray-700'}`}>
+        <div className={`pt-6 lg:pt-8 border-t text-center animate-fade-in ${theme === 'dark' ? 'text-gray-400 border-emerald-500/20' : 'text-gray-700 border-emerald-200'}`}>
           <p className="text-xs sm:text-sm">
-            © 2024 <span className="text-emerald-500 font-semibold">Waseem Ali</span>. All rights reserved. 
+            © 2024 <span className={theme === 'dark' ? 'text-emerald-500' : 'text-emerald-600'} >Waseem Ali</span>. All rights reserved.
             <span className={theme === 'dark' ? 'text-gray-500' : 'text-gray-500'}> | </span>
-            Built with <span className="text-emerald-500">React</span> & <span className="text-emerald-500">Tailwind CSS</span>
+            Built with <span className={theme === 'dark' ? 'text-emerald-500' : 'text-emerald-600'}>React</span> & <span className={theme === 'dark' ? 'text-emerald-500' : 'text-emerald-600'}>Tailwind CSS</span>
           </p>
         </div>
       </div>
