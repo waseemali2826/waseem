@@ -60,7 +60,7 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
             </div>
           </div>
           <div className="animate-slide-in-left">
-            <h4 className="text-base sm:text-lg font-semibold text-emerald-400 mb-3 sm:mb-4">Quick Links</h4>
+            <h4 className={`text-base sm:text-lg font-semibold mb-3 sm:mb-4 ${theme === 'dark' ? 'text-emerald-400' : 'text-emerald-600'}`}>Quick Links</h4>
             <div className="space-y-1 sm:space-y-2">
               {['About', 'Projects', 'Services', 'Contact'].map((link) => (
                 <button
@@ -74,7 +74,7 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
             </div>
           </div>
           <div className="animate-slide-in-right">
-            <h4 className="text-base sm:text-lg font-semibold text-emerald-400 mb-3 sm:mb-4">Specializations</h4>
+            <h4 className={`text-base sm:text-lg font-semibold mb-3 sm:mb-4 ${theme === 'dark' ? 'text-emerald-400' : 'text-emerald-600'}`}>Specializations</h4>
             <div className="space-y-1 sm:space-y-2">
               {['Machine Learning', 'Data Science', 'Python Development', 'AI Development'].map((spec) => (
                 <div key={spec} className={`text-xs sm:text-sm hover:text-emerald-500 transition-colors duration-300 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-700'}`}>
