@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Instagram } from 'lucide-react';
@@ -12,7 +11,7 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
   const { theme } = useTheme();
 
   return (
-    <footer className={`py-8 sm:py-10 lg:py-12 border-t border-emerald-500/20 relative z-10 overflow-hidden ${theme === 'dark' ? 'bg-gradient-to-r from-black/80 to-gray-900/80' : 'bg-gradient-to-r from-white/90 to-white/90'}`}>
+    <footer className={`py-8 sm:py-10 lg:py-12 border-t relative z-10 overflow-hidden ${theme === 'dark' ? 'bg-gradient-to-r from-black/80 to-gray-900/80 border-emerald-500/20' : 'bg-gradient-to-r from-emerald-50/80 to-emerald-50/60 border-emerald-200'}`}>
       {theme === 'light' && (
         <div 
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-10 z-0"
